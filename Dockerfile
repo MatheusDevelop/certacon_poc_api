@@ -1,4 +1,11 @@
-FROM ubuntu:latest
-LABEL authors="mathv"
+# Build stage
+FROM maven AS build
+COPY src /home/app/src
+COPY pom.xml /home/app
+RUN mvn -f /home/app/pom.xml clean test package
 
-ENTRYPOINT ["top", "-b"]
+# Package stage
+FROM openjdk:22-slim
+COPY --from=build /home/app/target/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","app.jar"]
