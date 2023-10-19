@@ -6,7 +6,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name="TB_DOCUMENTOS")
-public class Documento implements Serializable {
+public class Document implements Serializable {
      private static final long serialVersionUID = 1L;
      @Id
      @GeneratedValue(strategy = GenerationType.AUTO)

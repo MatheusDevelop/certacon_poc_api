@@ -1,9 +1,9 @@
-package com.certacon.poc.inputModels;
+package com.certacon.poc.dtos;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record CriarDocumentoInputModel(
+public record CreateDocumentDTO(
         @NotNull String Numero,
         @NotBlank String Campo,
         @NotBlank String Descricao,
